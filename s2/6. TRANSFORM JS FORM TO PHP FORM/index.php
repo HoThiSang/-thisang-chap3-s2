@@ -9,14 +9,26 @@
 </head>
 
 <body>
-    <form action="js/script.php" method="post">
+    <form action="" method="post">
         <input type="password" name="password" id="password" placeholder="Password">
         <button type="submit" id="login_btn">Log in</button>
     </form>
 
-    <!-- <div id="hidden" style="display:none">This is sensitive data visible only if the user knows the correct password</div> -->
+    <div id="hidden" style="display:none">This is sensitive data visible only if the user knows the correct password
+    </div>
 
+    <?php
+    $password = isset($_POST['password']) ? $_POST['password'] : "";
+    // $password = isset($_POST['password'])? $_POST['password'] : "";
 
+    if ($password == "1234") {
+        echo "<script>
+                 document.getElementById('hidden').style.display = 'block';
+            </script>";
+        // echo "This is sensitive data visible only if the user knows the correct password";
+
+    }
+    ?>
 </body>
 
 </html>
